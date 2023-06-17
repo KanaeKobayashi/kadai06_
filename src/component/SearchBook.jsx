@@ -53,7 +53,11 @@ db.collection("searches").add({
                         <h3>{book.volumeInfo.title}</h3>
                     </div>
                 ))} */}
+                <button className="clearButton" onClick={() => setData([])}>Clear</button>
+                
       </div>
+      
+      
       <div className="container">
         <Card book={bookData} />
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { db } from "../firebase.js";
 import firebase from "firebase/compat/app";
-import './Modal.css'
+import "./Modal.css";
 
 const Modal = ({ show, item, onClose }) => {
   const [comment, setComment] = useState("");
@@ -11,17 +11,25 @@ const Modal = ({ show, item, onClose }) => {
   const submitComment = (e) => {
     e.preventDefault();
 
-    db.collection("comments").add({
-      text: comment,
-      bookTitle: item.volumeInfo.title,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    })
-    .then((docRef) => {
-      console.log("Comment written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-      console.error("Error adding comment: ", error);
-    });
+    db.collection("comments")
+      .add({
+        text: comment,
+        bookId: item.id,
+        bookTitle: item.volumeInfo.title,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      .then((docRef) => {
+        console.log("Comment written with ID: ", docRef.id);
+        db.collection("comments").doc(docRef.id).set({
+          id: docRef.id,
+          text: comment,
+          bookTitle: item.volumeInfo.title,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding comment: ", error);
+      });
 
     setComment("");
   };
@@ -39,7 +47,7 @@ const Modal = ({ show, item, onClose }) => {
             <div className="info">
               <h1>{item.volumeInfo.title}</h1>
               <h3>{item.volumeInfo.authors}</h3>
-              <h4 >
+              <h4>
                 {item.volumeInfo.publisher}
                 <span>{item.volumeInfo.publishedDate}</span>
               </h4>
@@ -54,7 +62,7 @@ const Modal = ({ show, item, onClose }) => {
             </div>
           </div>
           <h4 className="description">{item.volumeInfo.description}</h4>
-          <form onSubmit={submitComment}className="comment-form">
+          <form onSubmit={submitComment} className="comment-form">
             <textarea
               type="text"
               value={comment}
