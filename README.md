@@ -31,3 +31,5 @@
   - https://reffect.co.jp/react/react-router-6/
   - https://ralacode.com/blog/post/how-to-use-react-router/
   - https://yoncoichi.com/image-opacity/
+  - https://www.papaparse.com/
+  - https://mui.com/material-ui/getting-started/usage/
