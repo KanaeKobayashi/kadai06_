@@ -1,39 +1,36 @@
-.searchBookWrapper{
-    text-align: center;
-    height: 75vh;
-    background: linear-gradient(rgba(124, 112, 128, 0.3), rgba(56, 48, 59, 0.5)), url("../image/cat.png") center/cover no-repeat;
+.searchBookWrapper {
+  text-align: center;
+  height: 75vh;
+  background: linear-gradient(rgba(124, 112, 128, 0.3), rgba(56, 48, 59, 0.5)),
+    url("../image/cat.png") center/cover no-repeat;
 
-    flex-direction: column;
-    margin-top:0px ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
-
+  flex-direction: column;
+  margin-top: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
-.searchBookWrapper h1{
-    padding-top: 250px;
-    color: aliceblue;
-
+.searchBookWrapper h1 {
+  padding-top: 250px;
+  color: aliceblue;
 }
-.searchBookWrapper h2{
-    padding-top: 70px;
-    color: aliceblue;
+.searchBookWrapper h2 {
+  padding-top: 70px;
+  color: aliceblue;
 }
-.inputTextArea{
-    width: 45%;
-    height: 35px;
-    border-radius: 20px 0 0 20px ;
-    padding-left: 20px;
+.inputTextArea {
+  width: 45%;
+  height: 35px;
+  border-radius: 20px 0 0 20px;
+  padding-left: 20px;
 }
-.searchBookWrapper button{
-    height: 38px;
-border-radius: 0 20px 20px 0;
-padding: 5px;
-background-color: bisque;
+.searchBookWrapper button {
+  height: 38px;
+  border-radius: 0 20px 20px 0;
+  padding: 5px;
+  background-color: bisque;
 }
-.searchBookWrapper .clearButton{
-    border-radius: 50%;
-
+.searchBookWrapper .clearButton {
+  border-radius: 50%;
 }

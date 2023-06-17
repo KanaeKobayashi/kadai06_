@@ -23,6 +23,7 @@ const Modal = ({ show, item, onClose }) => {
         db.collection("comments").doc(docRef.id).set({
           id: docRef.id,
           text: comment,
+          bookId: item.id,
           bookTitle: item.volumeInfo.title,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });

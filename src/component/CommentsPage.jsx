@@ -16,7 +16,7 @@ const CommentsPage = () => {
     db.collection("comments")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
-        setComments(snapshot.docs.map((doc) => doc.data()));
+        setComments(snapshot.docs.map((doc) => ({...doc.data(),commentId: doc.id})));
       });
   }, []);
 
@@ -41,6 +41,7 @@ const CommentsPage = () => {
       const res = await axios.get(
         `https://www.googleapis.com/books/v1/volumes/${id}`
       );
+      console.log(res.data);
       setSelectedBook(res.data);
       setShowModal(true);
     } catch (err) {
@@ -79,9 +80,9 @@ const CommentsPage = () => {
           <IconButton
             aria-label="delete"
             size="large"
-            onClick={() => deleteComment(comment.id)}
+            onClick={() => deleteComment(comment.commentId)}
           >
-            <DeleteIcon fontSize="large" style={{ color: 'gray' }} />
+            <DeleteIcon fontSize="large" style={{ color: "gray" }} />
           </IconButton>
         </div>
       ))}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import './Card.css'
+import "./Card.css";
 
 const Card = ({ book }) => {
   const [show, setShow] = useState(false);
@@ -15,7 +15,7 @@ const Card = ({ book }) => {
             item.volumeInfo.imageLinks.smallThumbnail;
           let amount =
             item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
-          if (thumbnail != undefined && amount != undefined) {
+          if (thumbnail !== undefined && amount !== undefined) {
             return (
               <div
                 className="card"
@@ -24,7 +24,8 @@ const Card = ({ book }) => {
                   setItem(item);
                 }}
               >
-                <img src={thumbnail} alt="" />
+                
+                <img src={thumbnail} alt="thumbnail" />
                 <div className="bottom">
                   <h3 className="title">{item.volumeInfo.title}</h3>
                   <p className="amount">&#165;{amount}</p>
@@ -34,11 +35,7 @@ const Card = ({ book }) => {
           }
         })}
       </div>
-      <Modal
-        show={show}
-        item={bookItem}
-        onClose={() => setShow(false)}
-      />
+      <Modal show={show} item={bookItem} onClose={() => setShow(false)} />
     </>
   );
 };

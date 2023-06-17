@@ -19,12 +19,11 @@ const SearchBook = () => {
         setData(res.data.items);
         console.log(search);
         setSearch(""); // 検索後に入力ボックスをクリアする
-// Firestoreに検索ワードを書き込む
-db.collection("searches").add({
-    keyword: search,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  });
-
+        // Firestoreに検索ワードを書き込む
+        db.collection("searches").add({
+          keyword: search,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -53,11 +52,11 @@ db.collection("searches").add({
                         <h3>{book.volumeInfo.title}</h3>
                     </div>
                 ))} */}
-                <button className="clearButton" onClick={() => setData([])}>Clear</button>
-                
+        <button className="clearButton" onClick={() => setData([])}>
+          Clear
+        </button>
       </div>
-      
-      
+
       <div className="container">
         <Card book={bookData} />
       </div>

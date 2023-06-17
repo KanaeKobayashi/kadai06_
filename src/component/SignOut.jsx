@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../firebase.js";
 import { Button } from "@mui/material";
-import "./SignOut.css"
+import "./SignOut.css";
 
 const SignOut = () => {
   return (
@@ -14,7 +14,7 @@ const SignOut = () => {
         height: "40px",
         width: "100%",
         alignItems: "center",
-        justifyContent:"space-between"
+        justifyContent: "space-between",
       }}
     >
       <Button

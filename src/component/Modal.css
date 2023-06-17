@@ -1,18 +1,15 @@
 .comment-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .comment-form textarea {
-    flex: 1;
-    margin-right: 10px;
-    padding-left: 20px;
-    
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .comment-form button{
-    padding: 5px;
-  }
+.comment-form textarea {
+  flex: 1;
+  margin-right: 10px;
+  padding-left: 20px;
+}
 
-  
+.comment-form button {
+  padding: 5px;
+}
